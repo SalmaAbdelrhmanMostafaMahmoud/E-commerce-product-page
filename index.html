@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="A solution to the E-commerce product page challenge on Frontend Mentor, built with HTML, CSS, and JavaScript.">
+    <meta name="keywords"
+        content="Frontend Mentor, E-commerce product page, HTML, CSS, JavaScript, Web Development, Front-end, Responsive Design">
+    <title>E-commerce product page</title>
+    <link rel="icon" href="images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,40..300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css">
+    <script src="js/index.js" defer></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="title-items_navbar">
+            <h1 class="sr-only">Sneakers</h1>
+                <img src="images/logo.svg" alt="logo">
+            <ul class="items_navbar">
+                <li>Collections</li>
+                <li>Men</li>
+                <li>Women</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+        <div class="cart">
+            <button class="items-incart" aria-label="numbers of items inside cart">
+                <span class="number-of-items">0</span>
+                <img src="images/icon-cart.svg" alt="" class="img-cart">
+            </button>
+            <img src="images/image-avatar.png" alt="img of user" class="img-user">
+        </div>
+    </nav>
+    <main>
+        <div class="about-product" aria-label="about product">
+            <div class="main-product" aria-label="images of product">
+                <img src="images/image-product-1.jpg" alt="" data-id="1" class="main-pic">
+                <img src="images/image-product-2.jpg" alt="" data-id="2" class="pic-product">
+                <img src="images/image-product-3.jpg" alt="" data-id="3" class="pic-product">
+                <img src="images/image-product-4.jpg" alt="" data-id="4" class="pic-product">
+            </div>
+            <div class="thumbnail" aria-label="images of product-thumbnail" >
+                <img src="images/image-product-1-thumbnail.jpg" alt="">
+                <img src="images/image-product-2-thumbnail.jpg" alt="">
+                <img src="images/image-product-3-thumbnail.jpg" alt="">
+                <img src="images/image-product-4-thumbnail.jpg" alt="">
+            </div>
+        </div>
+        <div class="product-details">
+            <h2>SNEAKER  COMPANY</h2>
+            <p class="important-details-about-product"><strong>Fall Limited Edition Sneakers</strong></p>
+            <p class="details">These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole,
+                they'll withstand everything the weather can offer.</p>
+                <div class="price">
+            <span class="price-details" aria-label="price of product after discount">$125.00</span> <span class="discount" aria-label="discount on product">50%</span>
+                </div>
+            <del aria-label="price before discount">$250.00</del>
+            <div class="quantity-addtocart">
+                <div class="quantity" aria-label="quantity you will add it in cart">
+                    <button type="button" class="dec-quantity" aria-label="decrease quantity">
+                        <img src="images/icon-minus.svg" alt="">
+                    </button>
+                    <span class="no-quantity">0</span>
+                                        <button type="button" class="inc-quantity" aria-label="increase quantity">
+                        <img src="images/icon-plus.svg" alt="">
+                    </button>
+
+                </div>
+                <div class="add-tocart">
+                    <button type="button" class="added-to-cart" aria-label="add it to cart">
+                        <img src="images/icon-cart.svg" alt="" class="cart-img">
+                        <span class="add-item">Add to cart</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

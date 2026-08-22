@@ -1,0 +1,253 @@
+:root {
+    --Orange: hsl(26, 100%, 55%);
+    --Pale-orange: hsl(25, 100%, 94%);
+    --Very-dark-blue: hsl(220, 13%, 13%);
+    --Dark-grayish-blue: hsl(219, 9%, 45%);
+    --Grayish-blue: hsl(220, 14%, 75%);
+    --Light-grayish-blue: hsl(223, 64%, 98%);
+    --White: hsl(0, 0%, 100%);
+    --Black: hsl(0, 0%, 0%);
+    --font-size: 1rem;
+    --fontWeight-normal: 400;
+    --fontWeight-large: 700
+}
+
+*::before,
+*::after,
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    background-color: var(--White);
+    max-width: 100%;
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+}
+
+.sr-only{
+overflow: hidden;
+margin: -0.0685rem;
+padding: 0;
+font-size: 0.0685rem;
+white-space: nowrap;
+clip: rect(0,0,0,0);
+width: 0.0685rem;
+height: 0.0685rem;
+}
+
+.navbar {
+    background-color: var(--Light-grayish-blue);
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding-inline: 2rem;
+    padding-block: 1.1rem;
+    border-bottom: 0.0685rem solid var(--Dark-grayish-blue);
+}
+
+.title-items_navbar,
+.items_navbar,
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.title-items_navbar {
+    flex-grow: 1;
+    gap: 3rem;
+}
+
+.items_navbar {
+    flex-grow: 1;
+    justify-content: space-between;
+    max-width: 30%;
+}
+
+.items_navbar li {
+    list-style: none;
+    color: var(--Dark-grayish-blue);
+    font-weight: var(--fontWeight-normal);
+    cursor: pointer;
+}
+
+.items_navbar li:hover {
+    color: var(--Orange);
+}
+
+.cart {
+    margin-left: auto;
+    margin-right: 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.img-user {
+    width: 2.5rem;
+}
+
+.items-incart {
+    position: relative;
+}
+
+.img-cart {
+    width: 1.5rem;
+}
+
+.number-of-items {
+    border-radius: 50%;
+    background-color: red;
+    color: var(--White);
+    padding-inline: 0.4rem;
+    padding-block: 0.2rem;
+    font-weight: var(--fontWeight-large);
+    position: absolute;
+    right: -0.5rem;
+    top: -0.6rem;
+}
+
+main {
+    padding-top: 10%;
+    width: 75%;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.pic-product {
+    display: none;
+}
+
+.about-product {
+    width: 100%;
+}
+
+.main-product img {
+    width: 82%;
+    border-radius: 1rem;
+}
+
+.thumbnail {
+    margin-top: 2rem;
+}
+
+.thumbnail img {
+    width: 18%;
+    margin-right: 1rem;
+    border-radius: 1rem;
+}
+
+.product-details {
+    margin-top: 3rem;
+}
+
+h2 {
+    color: var(--Dark-grayish-blue);
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    font-weight: var(--fontWeight-large);
+}
+
+.important-details-about-product {
+    font-size: 2.65rem;
+    font-optical-sizing: auto;
+    font-weight: var(--fontWeight-normal);
+    font-style: normal;
+    font-variation-settings:
+        "YOPQ" 300;
+    color: var(--Black);
+    margin-bottom: 2rem;
+}
+
+.details {
+    line-height: 1.6;
+    max-width: 80%;
+    word-wrap: wrap;
+    word-break: normal;
+    color: var(--Dark-grayish-blue);
+    font-weight: var(--fontWeight-normal);
+    margin-bottom: 1rem;
+}
+
+.price-details {
+    font-size: 1.6rem;
+    font-weight: var(--fontWeight-large);
+}
+
+.price {
+    display: flex;
+    align-items: center;
+}
+
+.discount {
+    margin-left: 2rem;
+    background-color: var(--Black);
+    color: var(--White);
+    border-radius: 0.4rem;
+    padding-inline: 0.7rem;
+    padding-block: 0.2em;
+    font-weight: var(--fontWeight-large);
+    font-size: 0.9rem;
+}
+
+del {
+    display: block;
+    margin-top: 1rem;
+    color: var(--Dark-grayish-blue);
+}
+
+.quantity-addtocart {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.quantity {
+    background-color: var(--Light-grayish-blue);
+    padding-inline: 1rem;
+    display: flex;
+    width: 25%;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0.5rem;
+    gap: 2rem;
+}
+
+.no-quantity {
+    font-weight: var(--fontWeight-large);
+    color: var(--Very-dark-blue);
+}
+
+.add-tocart {
+    background-color: var(--Orange);
+    max-width: 50%;
+    padding-block: 0.7rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.added-to-cart {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    color: var(--Very-dark-blue);
+    font-size: var(--fontWeight-large);
+}
+
+.cart-img {
+    margin-right: 1rem;
+}

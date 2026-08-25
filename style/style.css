@@ -30,6 +30,7 @@ body {
 button {
     border: none;
     background-color: transparent;
+    cursor: pointer;
 }
 
 .sr-only{
@@ -239,7 +240,10 @@ del {
     align-items: center;
     flex-grow: 1;
 }
-
+.add-tocart:hover{
+    transform: translateY(-0.3rem);
+    box-shadow: 0 0.6rem 0.6rem hsl(26, 75%, 49%);
+}
 .added-to-cart {
     margin: auto;
     display: flex;
@@ -250,4 +254,11 @@ del {
 
 .cart-img {
     margin-right: 1rem;
+    filter: brightness(0) saturate(100%) invert(11%) sepia(20%) saturate(1200%) hue-rotate(185deg);
+   
 }
+.add-item{
+    font-weight: var(--fontWeight-large);
+    color: var(--Very-dark-blue);
+}
+

@@ -7,14 +7,33 @@ const noOfQuantityCart = itemsInsideCart.querySelector('.number-of-items');
 const aboutProductImg = document.querySelector('.about-product');
 const mainImg = aboutProductImg.querySelectorAll('.main-product img');
 const thumbnail = aboutProductImg.querySelectorAll('.thumbnail img');
+const lightBoxModel = document.querySelector('.light-box');
+const imageOfItem = document.querySelectorAll('.img-content img');
+const imagesOfItem = document.querySelectorAll('.thumbnail-imgs img');
+let currentId = '1'
 function saveUserData() {
+    const activeCard = document.querySelector('.thumbnail img.active-thumb');
+    const activeId = activeCard ? activeCard.dataset.id : '1';
     let dataToSave = {
         quantity: noOfQuantity.textContent,
         cart: noOfQuantityCart.textContent,
-        mainImage: mainImg.src,
-        thumbnail: thumbnail.src
+        activeImg: activeId,
+        lightBoxOPen: lightBoxModel.style.display === 'flex',
+        lightBoxImage: currentId
     }
     localStorage.setItem('E-commercePage', JSON.stringify(dataToSave))
+}
+function savedImageId(id) {
+    mainImg.forEach(main => {
+        main.style.display = (main.dataset.id === id) ? 'block' : 'none'
+    });
+    thumbnail.forEach(t => t.classList.toggle('active-thumb', t.dataset.id === id));
+}
+function lightBoxSavedImageId(id) {
+    imageOfItem.forEach(main => {
+        main.style.display = (main.dataset.id === id) ? 'block' : 'none'
+    });
+    imagesOfItem.forEach(t => t.classList.toggle('active-thumb', t.dataset.id === id))
 }
 function loadSavedData() {
     let savedData = localStorage.getItem('E-commercePage');
@@ -22,8 +41,15 @@ function loadSavedData() {
         let parseData = JSON.parse(savedData);
         noOfQuantity.textContent = parseData.quantity;
         noOfQuantityCart.textContent = parseData.cart;
-        mainImg.src = parseData.mainImage;
-        thumbnail.src = parseData.thumbnail
+        const savedId = parseData.activeImg || '1';
+        if (parseData.lightBoxOPen) {
+            currentId = parseData.lightBoxImage || savedId;
+            lightBoxSavedImageId(currentId)
+            lightBoxModel.style.display ='flex';
+            document.body.classList.add('no-scroll')
+        }
+        savedImageId(savedId)
+
     }
 }
 loadSavedData()
@@ -37,7 +63,7 @@ function addQuantity() {
         let currentQuantity = parseInt(noOfQuantity.textContent) || 0
         if (currentQuantity > 0) {
             noOfQuantity.textContent = currentQuantity - 1
-            saveUserData()
+           saveUserData()
         }
     })
 }
@@ -54,19 +80,62 @@ function addItemsToCart() {
         saveUserData()
     })
 }
+addItemsToCart()
 function displayImageOfItem() {
     thumbnail.forEach(thumb => {
         thumb.addEventListener('click', (e) => {
             const mainImgId = e.target.dataset.id;
-            mainImg.forEach(main => {
-                if (mainImgId === main.dataset.id) {
-                    main.style.display = 'block'
-                } else {
-                    main.style.display = 'none'
-                }
-            })
+            savedImageId(mainImgId)
             saveUserData()
         })
     })
 }
 displayImageOfItem()
+function lightBox() {
+    const previousBtn = document.querySelector('.previous-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const exitBtn = document.querySelector('.exit')
+    mainImg.forEach(main => {
+        main.addEventListener('click', () => {
+            currentId = main.dataset.id
+            lightBoxModel.style.display = 'flex';
+            document.body.classList.add('no-scroll');
+            lightBoxSavedImageId(currentId)
+          saveUserData()
+
+        })
+    });
+    exitBtn.addEventListener('click', () => {
+        lightBoxModel.style.display = 'none';
+         document.body.classList.remove('no-scroll');
+        savedImageId(currentId)
+        saveUserData()
+    })
+    nextBtn.addEventListener('click', () => {
+        let numId = parseInt(currentId);
+        if (numId < imageOfItem.length) {
+            numId++;
+            currentId = numId.toString();
+            lightBoxSavedImageId(currentId)
+           saveUserData()
+        }
+    });
+
+    previousBtn.addEventListener('click', () => {
+        let numId = parseInt(currentId);
+        if (numId > 1) {
+            numId--;
+            currentId = numId.toString();
+            lightBoxSavedImageId(currentId)
+           saveUserData()
+        }
+    });
+    imagesOfItem.forEach(thumb => {
+        thumb.addEventListener('click', e => {
+            currentId = e.target.dataset.id
+            lightBoxSavedImageId(currentId)
+            saveUserData()
+        })
+    })
+}
+lightBox()

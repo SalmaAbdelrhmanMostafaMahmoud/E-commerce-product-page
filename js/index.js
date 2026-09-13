@@ -29,6 +29,29 @@ function savedImageId(id) {
     });
     thumbnail.forEach(t => t.classList.toggle('active-thumb', t.dataset.id === id));
 }
+function responsiveMainProductImg(){
+       const previousBtn = document.querySelector('.previous-btn1');
+    const nextBtn = document.querySelector('.next-btn1'); 
+nextBtn.addEventListener('click', () => {
+        let numId = parseInt(currentId);
+        if (numId < mainImg.length) {
+            numId++;
+            currentId = numId.toString();
+            savedImageId(currentId)
+           saveUserData()
+        }
+    });
+        previousBtn.addEventListener('click', () => {
+        let numId = parseInt(currentId);
+        if (numId > 1) {
+            numId--;
+            currentId = numId.toString();
+            savedImageId(currentId)
+           saveUserData()
+        }
+    });
+}
+responsiveMainProductImg()
 function lightBoxSavedImageId(id) {
     imageOfItem.forEach(main => {
         main.style.display = (main.dataset.id === id) ? 'block' : 'none'
@@ -139,3 +162,15 @@ function lightBox() {
     })
 }
 lightBox()
+function toggleMenu(){
+const menu = document.querySelector('.menu');
+const itemsNavbar = document.querySelector('.items_navbar');
+const closeBtn = document.querySelector('.close');
+menu.addEventListener('click', () => {
+itemsNavbar.classList.toggle('active');
+});
+closeBtn.addEventListener('click', () => {
+itemsNavbar.classList.remove('active');
+})
+}
+toggleMenu()

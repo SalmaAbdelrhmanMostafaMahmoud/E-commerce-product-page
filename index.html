@@ -19,13 +19,14 @@
 </head>
 
 <body>
-     <h1 class="sr-only">Sneakers</h1>
+    <h1 class="sr-only">Sneakers</h1>
     <nav class="navbar">
         <div class="title-items_navbar">
             <button class="menu" aria-label="menu button" type="button"><img src="images/icon-menu.svg" alt=""></button>
             <img src="images/logo.svg" alt="logo" class="logo">
             <ul class="items_navbar">
-                <button class="close" aria-label="close button" type="button"><img src="images/icon-close.svg" alt=""></button>
+                <button class="close" aria-label="close button" type="button"><img src="images/icon-close.svg"
+                        alt=""></button>
                 <li>Collections</li>
                 <li>Men</li>
                 <li>Women</li>
@@ -38,21 +39,46 @@
                 <span class="number-of-items">0</span>
                 <img src="images/icon-cart.svg" alt="" class="img-cart">
             </button>
+            <div class="dropdown-cart">
+        <h2>Cart</h2>
+        <div class="content-cart">
+            <p class="empty">Your cart is empty</p>
+            <div class="content-after-add-item">
+                <img src="images/image-product-1-thumbnail.jpg" alt="product" class="product-img">
+                <div class="price-of-quantity">
+                    <p class="product-name">Fall Limited Edition Sneakers</p>
+                    <p class="price-cart">$125.00 
+                        <span class="multiply">x</span>
+                        <span class="quantity-cart">3</span> 
+                        <span class="total-price">$375.00</span></p>
+                </div>
+                <div class="delete-item">
+                    <button class="delete" aria-label="delete item from cart" type="button">
+                        <img src="images/icon-delete.svg" alt="">
+                    </button>
+                </div>
+            </div>
+
+            <div class="checkout">
+                <button class="checkout-btn" type="button">Checkout</button>
+            </div>
+        </div>
+    </div>
             <img src="images/image-avatar.png" alt="img of user" class="img-user">
         </div>
     </nav>
     <main>
         <div class="about-product" aria-label="about product">
-                <button class="previous-btn1" aria-label="previous button" type="button"><img
-                        src="images/icon-previous.svg" alt=""></button>
+            <button class="previous-btn1" aria-label="previous button" type="button"><img src="images/icon-previous.svg"
+                    alt=""></button>
             <div class="main-product" aria-label="images of product">
                 <img src="images/image-product-1.jpg" alt="" data-id="1" class="main-pic">
                 <img src="images/image-product-2.jpg" alt="" data-id="2" class="pic-product">
                 <img src="images/image-product-3.jpg" alt="" data-id="3" class="pic-product">
                 <img src="images/image-product-4.jpg" alt="" data-id="4" class="pic-product">
             </div>
-                            <button class="next-btn1" aria-label="next button" type="button"><img src="images/icon-next.svg"
-                        alt=""></button>
+            <button class="next-btn1" aria-label="next button" type="button"><img src="images/icon-next.svg"
+                    alt=""></button>
             <div class="thumbnail" aria-label="images of product-thumbnail">
                 <img src="images/image-product-1-thumbnail.jpg" alt="" data-id="1">
                 <img src="images/image-product-2-thumbnail.jpg" alt="" data-id="2">
@@ -68,9 +94,8 @@
                 they'll withstand everything the weather can offer.</p>
             <div class="price">
                 <div class="price discount-price">
-                <span class="price-details" aria-label="price of product after discount">$125.00</span> 
-                <span
-                    class="discount" aria-label="discount on product">50%</span>
+                    <span class="price-details" aria-label="price of product after discount">$125.00</span>
+                    <span class="discount" aria-label="discount on product">50%</span>
                 </div>
                 <del aria-label="price before discount">$250.00</del>
 

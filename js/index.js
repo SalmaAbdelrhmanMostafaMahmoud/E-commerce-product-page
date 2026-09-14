@@ -19,7 +19,10 @@ function saveUserData() {
         cart: noOfQuantityCart.textContent,
         activeImg: activeId,
         lightBoxOPen: lightBoxModel.style.display === 'flex',
-        lightBoxImage: currentId
+        lightBoxImage: currentId,
+        cartItems: noOfQuantityCart.textContent,
+        cartContentDisplay: document.querySelector('.content-after-add-item').style.display,
+        checkoutDisplay: document.querySelector('.checkout').style.display
     }
     localStorage.setItem('E-commercePage', JSON.stringify(dataToSave))
 }
@@ -29,25 +32,25 @@ function savedImageId(id) {
     });
     thumbnail.forEach(t => t.classList.toggle('active-thumb', t.dataset.id === id));
 }
-function responsiveMainProductImg(){
-       const previousBtn = document.querySelector('.previous-btn1');
-    const nextBtn = document.querySelector('.next-btn1'); 
-nextBtn.addEventListener('click', () => {
+function responsiveMainProductImg() {
+    const previousBtn = document.querySelector('.previous-btn1');
+    const nextBtn = document.querySelector('.next-btn1');
+    nextBtn.addEventListener('click', () => {
         let numId = parseInt(currentId);
         if (numId < mainImg.length) {
             numId++;
             currentId = numId.toString();
             savedImageId(currentId)
-           saveUserData()
+            saveUserData()
         }
     });
-        previousBtn.addEventListener('click', () => {
+    previousBtn.addEventListener('click', () => {
         let numId = parseInt(currentId);
         if (numId > 1) {
             numId--;
             currentId = numId.toString();
             savedImageId(currentId)
-           saveUserData()
+            saveUserData()
         }
     });
 }
@@ -64,11 +67,13 @@ function loadSavedData() {
         let parseData = JSON.parse(savedData);
         noOfQuantity.textContent = parseData.quantity;
         noOfQuantityCart.textContent = parseData.cart;
+        document.querySelector('.content-after-add-item').style.display = parseData.cartContentDisplay;
+        document.querySelector('.checkout').style.display = parseData.checkoutDisplay;
         const savedId = parseData.activeImg || '1';
         if (parseData.lightBoxOPen) {
             currentId = parseData.lightBoxImage || savedId;
             lightBoxSavedImageId(currentId)
-            lightBoxModel.style.display ='flex';
+            lightBoxModel.style.display = 'flex';
             document.body.classList.add('no-scroll')
         }
         savedImageId(savedId)
@@ -86,19 +91,30 @@ function addQuantity() {
         let currentQuantity = parseInt(noOfQuantity.textContent) || 0
         if (currentQuantity > 0) {
             noOfQuantity.textContent = currentQuantity - 1
-           saveUserData()
+            saveUserData()
         }
     })
 }
 addQuantity()
 function addItemsToCart() {
     const addTOCart = document.querySelector('.added-to-cart');
+    const cartprice = document.querySelector('.price-cart');
+    const unitPrice = parseFloat(document.querySelector('.price-cart').textContent.replace('$', ''));
+    const quantity = cartprice.querySelector('.quantity-cart');
+    const totalPrice = cartprice.querySelector('.total-price');
+    const emptyMsg = document.querySelector('.empty');
+    const cartContent = document.querySelector('.content-after-add-item');
     addTOCart.addEventListener('click', () => {
         let selectedQuantity = parseInt(noOfQuantity.textContent) || 0;
         if (selectedQuantity === 0) return;
         let currentQuantity = parseInt(noOfQuantityCart.textContent) || 0;
         let totalQuantity = selectedQuantity + currentQuantity;
         noOfQuantityCart.textContent = totalQuantity;
+        quantity.textContent = totalQuantity
+        totalPrice.textContent = "$" + (unitPrice * totalQuantity).toFixed(2);
+        emptyMsg.style.display = 'none';
+        cartContent.style.display = 'flex';
+        checkout.style.display = 'block';
         noOfQuantity.textContent = 0;
         saveUserData()
     })
@@ -124,13 +140,13 @@ function lightBox() {
             lightBoxModel.style.display = 'flex';
             document.body.classList.add('no-scroll');
             lightBoxSavedImageId(currentId)
-          saveUserData()
+            saveUserData()
 
         })
     });
     exitBtn.addEventListener('click', () => {
         lightBoxModel.style.display = 'none';
-         document.body.classList.remove('no-scroll');
+        document.body.classList.remove('no-scroll');
         savedImageId(currentId)
         saveUserData()
     })
@@ -140,7 +156,7 @@ function lightBox() {
             numId++;
             currentId = numId.toString();
             lightBoxSavedImageId(currentId)
-           saveUserData()
+            saveUserData()
         }
     });
 
@@ -150,7 +166,7 @@ function lightBox() {
             numId--;
             currentId = numId.toString();
             lightBoxSavedImageId(currentId)
-           saveUserData()
+            saveUserData()
         }
     });
     imagesOfItem.forEach(thumb => {
@@ -162,15 +178,36 @@ function lightBox() {
     })
 }
 lightBox()
-function toggleMenu(){
-const menu = document.querySelector('.menu');
-const itemsNavbar = document.querySelector('.items_navbar');
-const closeBtn = document.querySelector('.close');
-menu.addEventListener('click', () => {
-itemsNavbar.classList.toggle('active');
-});
-closeBtn.addEventListener('click', () => {
-itemsNavbar.classList.remove('active');
-})
+function toggleMenu() {
+    const menu = document.querySelector('.menu');
+    const itemsNavbar = document.querySelector('.items_navbar');
+    const closeBtn = document.querySelector('.close');
+    menu.addEventListener('click', () => {
+        itemsNavbar.classList.toggle('active');
+    });
+    closeBtn.addEventListener('click', () => {
+        itemsNavbar.classList.remove('active');
+    })
 }
 toggleMenu()
+function displayCart() {
+    const cart = document.querySelector('.cart');
+    const cartBtn = cart.querySelector('.items-incart');
+    const dropdownCart = document.querySelector('.dropdown-cart');
+    cartBtn.addEventListener('click', () => {
+        dropdownCart.style.display = (dropdownCart.style.display === 'block') ? 'none' : 'block';
+        const deleteItems = document.querySelector('.delete-item')
+        const deleteBtn = deleteItems.querySelector('.delete');
+         const emptyMsg = document.querySelector('.empty');
+        deleteBtn.addEventListener('click', () => {
+            const cartContent = document.querySelector('.content-after-add-item');
+            const checkout = document.querySelector('.checkout');
+            cartContent.style.display = 'none';
+            checkout.style.display = 'none';
+            emptyMsg.style.display = 'block';
+            saveUserData()
+        })
+    })
+    saveUserData()
+}
+displayCart()

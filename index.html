@@ -19,23 +19,28 @@
 </head>
 
 <body>
+    <header>
     <h1 class="sr-only">Sneakers</h1>
+    </header>
     <nav class="navbar">
+            <div class="overlay"></div>
         <div class="title-items_navbar">
             <button class="menu" aria-label="menu button" type="button"><img src="images/icon-menu.svg" alt=""></button>
             <img src="images/logo.svg" alt="logo" class="logo">
-            <ul class="items_navbar">
-                <button class="close" aria-label="close button" type="button"><img src="images/icon-close.svg"
+            <div class="main-items_navbar">
+                            <button class="close" aria-label="close button" type="button"><img src="images/icon-close.svg"
                         alt=""></button>
-                <li>Collections</li>
-                <li>Men</li>
-                <li>Women</li>
-                <li>About</li>
-                <li>Contact</li>
+            <ul class="items_navbar">
+  <li><a href="#collections">Collections</a></li>
+    <li><a href="#men">Men</a></li>
+    <li><a href="#women">Women</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
             </ul>
+            </div>
         </div>
         <div class="cart">
-            <button class="items-incart" aria-label="numbers of items inside cart">
+            <button class="items-incart" aria-label="numbers of items inside cart" type="button">
                 <span class="number-of-items">0</span>
                 <img src="images/icon-cart.svg" alt="" class="img-cart">
             </button>
@@ -68,22 +73,22 @@
         </div>
     </nav>
     <main>
-        <div class="about-product" aria-label="about product">
+        <div class="about-product">
             <button class="previous-btn1" aria-label="previous button" type="button"><img src="images/icon-previous.svg"
                     alt=""></button>
-            <div class="main-product" aria-label="images of product">
-                <img src="images/image-product-1.jpg" alt="" data-id="1" class="main-pic">
-                <img src="images/image-product-2.jpg" alt="" data-id="2" class="pic-product">
-                <img src="images/image-product-3.jpg" alt="" data-id="3" class="pic-product">
-                <img src="images/image-product-4.jpg" alt="" data-id="4" class="pic-product">
+            <div class="main-product">
+                <img src="images/image-product-1.jpg" alt="Main product image 1" data-id="1" class="main-pic">
+                <img src="images/image-product-2.jpg" alt="Main product image 2" data-id="2" class="pic-product">
+                <img src="images/image-product-3.jpg" alt="Main product image 3" data-id="3" class="pic-product">
+                <img src="images/image-product-4.jpg" alt="Main product image 4" data-id="4" class="pic-product">
             </div>
             <button class="next-btn1" aria-label="next button" type="button"><img src="images/icon-next.svg"
                     alt=""></button>
-            <div class="thumbnail" aria-label="images of product-thumbnail">
-                <img src="images/image-product-1-thumbnail.jpg" alt="" data-id="1">
-                <img src="images/image-product-2-thumbnail.jpg" alt="" data-id="2">
-                <img src="images/image-product-3-thumbnail.jpg" alt="" data-id="3">
-                <img src="images/image-product-4-thumbnail.jpg" alt="" data-id="4">
+            <div class="thumbnail">
+                <img src="images/image-product-1-thumbnail.jpg" alt="Thumbnail image 1" data-id="1">
+                <img src="images/image-product-2-thumbnail.jpg" alt="Thumbnail image 2" data-id="2">
+                <img src="images/image-product-3-thumbnail.jpg" alt="Thumbnail image 3" data-id="3">
+                <img src="images/image-product-4-thumbnail.jpg" alt="Thumbnail image 4" data-id="4">
             </div>
         </div>
         <div class="product-details">
@@ -94,14 +99,14 @@
                 they'll withstand everything the weather can offer.</p>
             <div class="price">
                 <div class="price discount-price">
-                    <span class="price-details" aria-label="price of product after discount">$125.00</span>
-                    <span class="discount" aria-label="discount on product">50%</span>
+                    <span class="price-details">$125.00</span>
+                    <span class="discount">50%</span>
                 </div>
-                <del aria-label="price before discount">$250.00</del>
+                <del>$250.00</del>
 
             </div>
             <div class="quantity-addtocart">
-                <div class="quantity" aria-label="quantity you will add it in cart">
+                <div class="quantity">
                     <button type="button" class="dec-quantity" aria-label="decrease quantity">
                         <img src="images/icon-minus.svg" alt="">
                     </button>
@@ -112,7 +117,7 @@
 
                 </div>
                 <div class="add-tocart">
-                    <button type="button" class="added-to-cart" aria-label="add it to cart">
+                    <button type="button" class="added-to-cart" type="button">
                         <img src="images/icon-cart.svg" alt="" class="cart-img">
                         <span class="add-item">Add to cart</span>
                     </button>
@@ -127,20 +132,20 @@
                         alt=""></button>
                 <button class="previous-btn" aria-label="previous button" type="button"><img
                         src="images/icon-previous.svg" alt=""></button>
-                <div class="img-content" aria-label="images of product">
-                    <img src="images/image-product-1.jpg" alt="" data-id="1" class="main-pic">
-                    <img src="images/image-product-2.jpg" alt="" data-id="2" class="pic-product">
-                    <img src="images/image-product-3.jpg" alt="" data-id="3" class="pic-product">
-                    <img src="images/image-product-4.jpg" alt="" data-id="4" class="pic-product">
+                <div class="img-content">
+                    <img src="images/image-product-1.jpg" alt="Main product image 1" data-id="1" class="main-pic">
+                    <img src="images/image-product-2.jpg" alt="Main product image 2" data-id="2" class="pic-product">
+                    <img src="images/image-product-3.jpg" alt="Main product image 3" data-id="3" class="pic-product">
+                    <img src="images/image-product-4.jpg" alt="Main product image 4" data-id="4" class="pic-product">
                 </div>
                 <button class="next-btn" aria-label="next button" type="button"><img src="images/icon-next.svg"
                         alt=""></button>
             </div>
-            <div class="thumbnail-imgs" aria-label="images of product-thumbnail">
-                <img src="images/image-product-1-thumbnail.jpg" alt="" data-id="1">
-                <img src="images/image-product-2-thumbnail.jpg" alt="" data-id="2">
-                <img src="images/image-product-3-thumbnail.jpg" alt="" data-id="3">
-                <img src="images/image-product-4-thumbnail.jpg" alt="" data-id="4">
+            <div class="thumbnail-imgs">
+                <img src="images/image-product-1-thumbnail.jpg" alt="Thumbnail image 1" data-id="1">
+                <img src="images/image-product-2-thumbnail.jpg" alt="Thumbnail image 2" data-id="2">
+                <img src="images/image-product-3-thumbnail.jpg" alt="Thumbnail image 3" data-id="3">
+                <img src="images/image-product-4-thumbnail.jpg" alt="Thumbnail image 4" data-id="4">
             </div>
         </div>
     </div>
